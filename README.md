@@ -1,42 +1,85 @@
-Credit Card Fraud Detection API
+# Fraud Pattern Analysis
 
-🚀 A machine learning pipeline for detecting fraudulent credit card transactions using LightGBM, with a Flask-powered API for real-time predictions. Based on publicly available Kaggle dataset.
+## Business Problem
 
-📊 Dataset
+Financial fraud represents a significant risk for banks, fintech companies, and payment platforms. Fraudulent transactions lead not only to direct financial losses, but also to reputational damage, regulatory pressure, and loss of customer trust.
 
-This project uses the Credit Card Fraud Detection dataset from Kaggle.It includes over 280,000 anonymized transactions made by European cardholders in September 2013.
+The goal of this project is to **analyze transaction patterns associated with fraudulent behavior**, identify high-risk segments, and provide **data-driven recommendations** for fraud prevention.
 
-492 fraud cases (0.17%)
+---
 
-Features: 30 total (Time, Amount, V1 to V28, Class)
+## Dataset
 
-Target: Class (1 = Fraud, 0 = Normal)
+* **Source:** Kaggle
+* **Records:** Thousands of transactions
+* **Key features:**
 
-🔍 Project Overview
+  * Transaction amount
+  * Transaction type
+  * Time-based features
+  * Customer and account identifiers
+  * Fraud flag (fraud / non-fraud)
 
-Goal: Detect fraud in credit card transactions with high precision/recall.
+The dataset reflects realistic transaction-level data commonly used in fraud analytics teams.
 
-Model: LightGBM Classifier (tuned with class weighting)
+---
 
-Preprocessing:
+## Key Business Questions
 
-Remove duplicates
+* What proportion of transactions are fraudulent?
+* Which transaction types carry the highest fraud risk?
+* How does transaction amount relate to fraud probability?
+* Are there time-based or behavioral fraud patterns?
+* Which segments should be monitored more closely?
 
-Standard scaling with StandardScaler
+---
 
-Train-test split with stratification
+## Analysis Overview
 
-Deployment: Flask API for real-time predictions
+### 1. Data Preparation
 
-🚀 Features
+* Data cleaning and validation
+* Feature engineering (time-based and behavioral features)
+* Handling class imbalance
 
-End-to-end ML pipeline (cleaning, training, testing, saving models)
+### 2. Exploratory Analysis
 
-Flask-based REST API
+* Fraud rate by transaction type
+* Distribution of transaction amounts for fraud vs non-fraud
+* Time-of-day and frequency analysis
+* Identification of abnormal transaction behaviors
 
-JSON input/output for model predictions
+### 3. Key Findings
 
-Uses saved scaler/model for consistent inference
+* Fraud is highly concentrated in specific transaction types
+* Fraudulent transactions often involve atypical amounts
+* Certain time windows show elevated fraud activity
+* Behavioral patterns provide early warning signals before fraud occurs
 
-Well-documented and clean code structure
+---
+
+## Insights for Business
+
+* Fraud is **pattern-based**, not random
+* A small subset of transactions accounts for a disproportionate share of fraud losses
+* Behavioral indicators can be used for early detection and prevention
+
+These insights allow fraud teams to move from reactive investigation to **proactive risk monitoring**.
+
+---
+
+## Business Recommendations
+
+* Implement transaction-type–specific monitoring rules
+* Introduce dynamic thresholds based on behavioral patterns
+* Increase real-time monitoring during high-risk time windows
+* Prioritize manual reviews for high-risk segments
+
+---
+
+## Tools & Technologies
+
+* **Python:** pandas, numpy, matplotlib
+* **Analysis:** EDA, statistical analysis
+* **Modeling:** scikit-learn 
 
